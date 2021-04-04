@@ -1,4 +1,12 @@
 apt update ; apt upgrade -y ; apt -y install build-essential ; apt install -y vim wget  git 
+echo "alias ll='ls -lha'" >> /etc/skel/.bashrc
+echo "alias ll='ls -lha'" >> ~/.bashrc
+VIMRC=/etc/skel/.vimrc
+rm $VIMRC
+touch /etc/skel/.vimrc 
+echo "set number" >> $VIMRC
+echo "colorscheme desert" >> $VIMRC
+cp $VIMRC ~/
 cat >  /etc/sysctl.d/90-voip.conf << EOF
 #размеры буферов
 net.core.rmem_max = 67108864
@@ -96,6 +104,9 @@ kernel.randomize_va_space=2
 
 kernel.panic=10
 EOF
+
+sysctl --system
+
 
 cp /etc/security/limits.conf  /etc/security/limits.conf.bk 
 cat > /etc/security/limits.conf << EOF
