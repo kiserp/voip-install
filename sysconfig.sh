@@ -1,4 +1,4 @@
-apt update ; apt upgrade -y ; apt -y install build-essential ; apt install -y vim wget 
+apt update ; apt upgrade -y ; apt -y install build-essential ; apt install -y vim wget  git 
 cat >  /etc/sysctl.d/90-voip.conf << EOF
 #размеры буферов
 net.core.rmem_max = 67108864
